@@ -1,0 +1,143 @@
+{
+    "startsWith" : [ "StandUp" ],
+
+    "endsWith" : [ "Ko", "Submission" ], 
+
+    "transitions" : {
+
+        "KoAttempt" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "Ko" : 0.5,
+                "KoCounter" : 0.3,
+                "StandUp" : 0.8
+            }
+        },
+        "Combination" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "Ko" : 0.2,
+                "CombinationCounter" : 0.4,
+                "CombinationHit" : 0.8,
+                "CombinationMiss" : 0.5
+            }
+        },
+        "CombinationHit" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "StandUp" : 1
+            }
+        },
+        "CombinationMiss" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "StandUp" : 1
+            }
+        },
+        "CombinationCounter" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "Ko":0.2,
+                "CombinationHit" : 0.8,
+                "CombinationMiss" : 0.5
+            }
+        },
+        "KoCounter" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "Ko":0.3,
+                "StandUp" : 0.7
+            }
+        },
+        "StandUp" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "MoveToCage" : 0.5,
+                "MoveToCenter" : 0.5,
+                "Combination" : [0.5, 0.7],
+                "Clinch" : [0.2, 0.6],
+                "JudoWresling" : [0.3, 0.6],
+                "KoAttempt" : [0.1, 0.2],
+                "TakeDownAttempt" : 0.5
+            }
+        },
+        "MoveToCage" : {
+            "_" : ["Center"],
+            "newContext" : "Cage",
+            "transitions" : {
+                "StandUp" : 1
+            }
+        },
+        "MoveToCenter" : {
+            "_" : ["Cage"],
+            "newContext" : "Center",
+            "transitions" : {
+                "StandUp" : 1
+            }
+        },
+        "TakeDownAttempt" : {
+            "_" : ["Center"],
+            "transitions" : {
+                "OntheGround" : 0.5,
+                "JudoWresling" : 0.5
+            }
+        },
+        "Clinch" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "StandUp" : 0.5,
+                "JudoWresling":0.5,
+                "ClinchHit" : 0.5
+            }
+        },
+        "ClinchHit" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "Ko" : 0.1,
+                "Clinch" : 1
+            }
+        },
+        
+        "OntheGround" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "Submission" : 0.5,
+                "GroundNPound":[0.7, 0.8],
+                "Escape" : [0.3, 0.2],
+                "GrounControl" : [0.6, 0.7]
+            }
+        },
+        "JudoWresling": {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "OntheGround" : 0.5,
+                "Clinch" : 0.5
+            }
+        },
+        "GroundNPound":{
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "OntheGround" : 0.5,
+                "Ko" : 0.5,
+                "Escape" : 0.2
+            }
+        },
+
+        "GrounControl" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "OntheGround":[0.7, 0.8],
+                "Escape" : [0.5, 0.4]
+            }
+        },
+        "Escape" : {
+            "_" : ["Center", "Cage"],
+            "transitions" : {
+                "StandUp":[0.3, 0.2],
+                "OntheGround" : 0.5,
+                "JudoWresling" : 0.5
+            }
+        }
+    }
+
+}

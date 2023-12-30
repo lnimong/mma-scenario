@@ -1,0 +1,20 @@
+state,cageSwitch,centerSwitch
+Ko,0,0
+KoCounter,1,1
+StandUp,0.4,0
+CombinationCounter,1,1
+CombinationHit,0,0
+CombinationMiss,0.5,0 .5
+MoveToCage,0,0.2
+MoveToCenter,0.3,0
+Combination,0.2,0.5
+Clinch,0.1,0.6
+JudoWresling,0.2,07
+KoAttempt,0,0
+TakeDownAttempt,0,0
+OntheGround,0.5,0.5
+ClinchHit,0,0
+Submission,0,0
+GroundNPound,0,0
+Escape,0,0
+GrounControl,0.5,0.5
